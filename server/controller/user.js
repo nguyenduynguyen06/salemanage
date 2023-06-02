@@ -1,4 +1,4 @@
-import user from '../model/user.js';
+/*import user from '../model/user.js';
 import _JWT from '../common/_JWT.js';
 
 
@@ -28,7 +28,7 @@ export const signUp = (req, res) => {
     else res.status(404).json({success: false, message: 'Tài khoản đã tồn tại'});
   }) 
 };
-
+*/
 
 
 

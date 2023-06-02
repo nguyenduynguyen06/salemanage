@@ -1,4 +1,4 @@
-import express from 'express';
+/*import express from 'express';
 import _jwt from '../common/_JWT.js'
 import {signIn,signUp} from '../controller/user.js';
 const router= express.Router();
@@ -27,3 +27,4 @@ router.post('/signUp', signUp);
 // })
 
 export default router;
+*/

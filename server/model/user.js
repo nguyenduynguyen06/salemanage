@@ -1,4 +1,4 @@
-import connection from '../common/connect.js';
+/*import connection from '../common/connect.js';
 import bcrypt from 'bcrypt';
 const user= function(user){
     this.id= user.id;
@@ -49,4 +49,4 @@ user.signUp = function(data, result) {
   );
 };
 export default user;
-
+*/
