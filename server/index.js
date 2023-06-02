@@ -8,7 +8,7 @@ import hoa_don from './router/hoa_don.js';
 import web from './router/web.js';
 
 const app= express();
-const PORT= process.env.port || 5000;
+const PORT = process.env.PORT || 5000;
 
 // app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.urlencoded({extended: false}))
