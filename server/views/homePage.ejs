@@ -1,0 +1,119 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/_css/homePage.css"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>NODE JS</title>
+</head>
+<body>
+<div class="topnav">
+    <a class="active" href="/web/home">Home</a>
+    <div class="dropdown">
+      <a href="#" class="dropbtn">Danh mục</a>
+      <div class="dropdown-content">
+        <a href="/web/danhmuc">Danh mục</a>
+        <% for (let i=0; i<dataDM.length; i++) { %>
+              <a href="/web/danhmuc/<%= dataDM[i].id %>"><%= dataDM[i].ten_danh_muc%></a>
+        <% } %>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#" class="dropbtn">Hãng xe</a>
+      <div class="dropdown-content">
+        <% for (let j=0; j< dataHX.length; j++) { %>
+          <a href="/web/hangxe/<%= dataHX[j].id %>"><%= dataHX[j].ten_hang_xe%></a>
+    <% } %>
+      </div>
+  </div>  
+    <a href="#about">About</a>
+</div>
+
+      
+      <div style="padding-left:16px">
+        <div class="w3-container">
+          <h2>Danh sách xe</h2>        
+          <table class="w3-table-all">
+            <thead>
+              <tr class="w3-light-grey w3-hover-green">
+                <th>Id</th>
+                <th>Tên xe</th>
+                <th>Giá bán</th>
+                <th>Hoạt động</th>
+              </tr>
+            </thead>
+            <% for(let i=0; i<dataXe.length; i++) { %>
+              <tr class="w3-hover-text-green">
+                <td><%= dataXe[i].id%></td>
+                <td><%= dataXe[i].ten_xe%></td>
+                <td><%= dataXe[i].gia%></td>
+                <td>
+                  <a class="link-button details-button" href="/web/details/xe/<%= dataXe[i].id%>">Details</a>
+                  <a class="link-button update-button" href="#">Update</a>
+                  <a class="link-button delete-button" href="#">Delete</a>
+                </td>
+              </tr>
+            <% } %>
+          </table>
+        </div>
+      </div>
+      <!-- <div class="container"> -->
+        <form action="http://localhost:5000/web/xe/add" class="create-new-form" method="post">
+          <div class="row">
+            <div class="col-25">
+              <label for="fname">Tên xe</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="fname" name="ten_xe" placeholder="Tên xe...">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="lname">Giá bán</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="lname" name="gia_ban" placeholder="Giá bán...">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="country">Danh mục</label>
+            </div>
+            <div class="col-75">
+              <select id="country" name="id_danh_muc_xe">
+                <% for (let i=0; i<dataDM.length; i++) { %>
+                  <option value="<%= dataDM[i].id %>"><%= dataDM[i].ten_danh_muc%></option>
+                <% } %>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="country">Hãng xe</label>
+            </div>
+            <div class="col-75">
+              <select id="country" name="id_hang_xe">
+                <% for (let j=0; j< dataHX.length; j++) { %>
+                  <option value="<%= dataHX[j].id%>"><%= dataHX[j].ten_hang_xe%></option>
+                <% } %>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="subject">Mô tả</label>
+            </div>
+            <div class="col-75">
+              <textarea id="subject" name="mo_ta" placeholder="Viết mô tả về xe..." style="height:200px"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <!-- <input type="button" value="Submit"> -->
+            <button type="submit" class="submitBtn">Thêm</button>
+            <!-- button button1 -->
+          </div>
+        </form>
+      <!-- </div> -->
+</body>
+</html>

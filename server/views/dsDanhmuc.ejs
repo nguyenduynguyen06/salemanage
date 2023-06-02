@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/_css/homePage.css"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>NODE JS</title>
+</head>
+<body>
+<div class="topnav">
+    <a class="active" href="/web/home">Home</a>
+    <div class="dropdown">
+      <a href="#" class="dropbtn">Danh mục</a>
+      <div class="dropdown-content">
+          <% for (let i = 0; i < dataDanhmuc.length; i++) { %>
+              <a href="/web/danhmuc/<%= dataDanhmuc[i].id%>"><%= dataDanhmuc[i].ten_danh_muc %></a>
+          <% } %>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="/web/hangxe/1" class="dropbtn">Hãng xe</a>
+  </div>  
+    <a href="#about">About</a>
+    <button id="addDanhMucButton" class="add-button">Thêm danh mục</button>
+</div>
+      
+      <div style="padding-left:16px">
+        <div class="w3-container">
+          <h2>Danh sách danh mục</h2>        
+          <table class="w3-table-all">
+            <thead>
+              <tr class="w3-light-grey w3-hover-green">
+                <th>Tên danh mục</th>
+                <th>Ảnh danh mục</th>
+                <th>Hoạt động</th>
+                <th></th>
+              </tr>
+            </thead>
+            <% for (let i = 0; i < dataDanhmuc.length; i++) { %>
+              <tr class="w3-hover-text-green">
+                <td><%= dataDanhmuc[i].ten_danh_muc%></td>
+                <td><img src="<%= dataDanhmuc[i].anh_dai_dien%>" alt="" class="thumbnail-img"></td>
+                <td> <a class="link-button update-button" href="#">Update</a></td>
+                <td>
+                  <a class="link-button delete-button" href="/web/danhmuc/xoa/<%= dataDanhmuc[i].id%>">Delete</a>
+                </td>
+              </tr>
+            <% } %>
+          </table>
+        </div>
+      </div>
+  
+      <!-- </div> -->
+      <div id="addDanhMucFormWrapper" class="hidden">
+        <div id="addDanhMucForm">
+          <h3>Thêm danh mục</h3>
+          <form id="danhMucForm" method="POST" action="/web/danhmuc/add" enctype="multipart/form-data">
+            <label for="tenDanhMuc">Tên danh mục:</label>
+            <input type="text" id="tenDanhMuc" name="ten_danh_muc" required>
+            <br>
+            <label for="anhDaiDien">Ảnh đại diện:</label>
+            <input type="file" id="anhDaiDien" name="anh_dai_dien" accept="image/*" required>
+            <br>
+            <button type="submit">Lưu</button>
+          </form>
+        </div>
+      </div>
+      
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const addDanhMucButton = document.getElementById('addDanhMucButton');
+          const addDanhMucFormWrapper = document.getElementById('addDanhMucFormWrapper');
+      
+          addDanhMucButton.addEventListener('click', function() {
+            addDanhMucFormWrapper.classList.toggle('hidden');
+          });
+        });
+      </script>
+      
+      <style>
+        .hidden {
+          display: none;
+        }
+      </style>
+      
+
+               
+</body>
+</html>

@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/_css/homePage.css"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>NODE JS</title>
+</head>
+<body>
+<div class="topnav">
+    <a class="active" href="/web/home">Home</a>
+    <div class="dropdown">
+      <a href="#" class="dropbtn">Danh mục</a>
+      <div class="dropdown-content">
+          <% for (let i = 0; i < dataDanhmuc.length; i++) { %>
+              <a href="/web/danhmuc/<%= dataDanhmuc[i].id%>"><%= dataDanhmuc[i].ten_danh_muc %></a>
+          <% } %>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#" class="dropbtn">Hãng xe</a>
+      <div class="dropdown-content">
+          <% for (let i = 0; i < dataHangxe.length; i++) { %>
+              <a href="/web/hangxe/<%= dataHangxe[i].id%>"><%= dataHangxe[i].ten_hang_xe %></a>
+          <% } %>
+      </div>
+  </div>  
+    <a href="#about">About</a>
+</div>
+      
+      <div style="padding-left:16px">
+        <div class="w3-container">
+          <h2>Danh sách xe</h2>        
+          <table class="w3-table-all">
+            <thead>
+              <tr class="w3-light-grey w3-hover-green">
+                <th>Id</th>
+                <th>Tên xe</th>
+                <th>Giá bán</th>
+                <th>Hoạt động</th>
+              </tr>
+            </thead>
+            <% for(let i=0; i<idHangXe.length; i++) { %>
+              <tr class="w3-hover-text-green">
+                <td><%= idHangXe[i].id%></td>
+                <td><%= idHangXe[i].ten_xe%></td>
+                <td><%= idHangXe[i].gia%></td>
+                <td>
+                  <a class="link-button details-button" href="/web/details/xe/<%= idHangXe[i].id%>">Details</a>
+                  <a class="link-button update-button" href="#">Update</a>
+                  <a class="link-button delete-button" href="#">Delete</a>
+                </td>
+              </tr>
+            <% } %>
+          </table>
+        </div>
+      </div>
+      
+</body>
+</html>
