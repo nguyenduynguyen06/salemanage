@@ -57,7 +57,7 @@ class DanhMuc1 {
     const { ten_danh_muc, anh_dai_dien } = danhMucData;
   
 
-    const imagePath = `${anh_dai_dien}`;
+    const imagePath = `https://salemanage.herokuapp.com/${anh_dai_dien}`;
   
     const query = 'INSERT INTO danh_muc_xe (ten_danh_muc, anh_dai_dien) VALUES (?, ?)';
     connection.query(query, [ten_danh_muc, imagePath], (err, result) => {
